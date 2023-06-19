@@ -1,4 +1,4 @@
-package com.example.fail;
+package com.example.networkfail;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

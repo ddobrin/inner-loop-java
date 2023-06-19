@@ -1,4 +1,4 @@
-package com.example.fail;
+package com.example.networkfail;
 
 import org.flywaydb.core.Flyway;
 import org.springframework.boot.autoconfigure.flyway.FlywayProperties;

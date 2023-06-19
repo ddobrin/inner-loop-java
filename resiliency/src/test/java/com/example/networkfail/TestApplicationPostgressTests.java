@@ -1,14 +1,8 @@
-package com.example.fail;
+package com.example.networkfail;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import eu.rekawek.toxiproxy.Proxy;
-import eu.rekawek.toxiproxy.ToxiproxyClient;
-import eu.rekawek.toxiproxy.model.ToxicDirection;
-import eu.rekawek.toxiproxy.model.toxic.Latency;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.concurrent.TimeoutException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -17,14 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.Network;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.containers.ToxiproxyContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import reactor.test.StepVerifier;
-import reactor.test.StepVerifier.Step;
-import reactor.util.retry.Retry;
 
 @Testcontainers
 @DataR2dbcTest
@@ -64,6 +54,6 @@ class TestApplicationPostgressTests {
 
   @Test
   void addnew() {
-    StepVerifier.create(this.serverlessServicesRepository.save(new ServerlessServices(123l, "NextGenService"))).expectNextCount(3);
+    StepVerifier.create(this.serverlessServicesRepository.save(new ServerlessServices(10, "NextGenService"))).expectNextCount(3);
   }
 }
